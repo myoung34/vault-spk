@@ -9,6 +9,7 @@ DNAME="vault"
 INSTALL_DIR="/usr/local/${PACKAGE}"
 DIR_vault="${INSTALL_DIR}/vault"
 vault="${DIR_vault}/vault"
+DIR_NAME="/volume1/@appstore/vault"
 CONF_DIR="${DIR_NAME}/conf.d"
 ALT_CONF_DIR="/etc/vault"
 PID_FILE="/var/run/vault.pid"
@@ -27,7 +28,7 @@ export USERNAME=root
 
 start_daemon ()
 {
-    echo "Using configuration file in ${CONFIG_DIR}" >> $LOG_FILE
+    echo "Using configuration file in ${CONF_DIR}" >> $LOG_FILE
     ${vault} $ARGS >> ${LOG_FILE} 2>&1 &
     echo $! > ${PID_FILE}
 }
